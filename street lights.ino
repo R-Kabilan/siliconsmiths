@@ -1,4 +1,4 @@
-define GND 10;
+#define GND 10
 void setup()
 {
 Serial.begin(9600);
