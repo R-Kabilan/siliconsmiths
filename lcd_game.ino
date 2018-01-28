@@ -305,5 +305,5 @@ void loop(){
     
     digitalWrite(PIN_AUTOPLAY, terrainLower[HERO_HORIZONTAL_POSITION + 2] == SPRITE_TERRAIN_EMPTY ? HIGH : LOW);
   }
-  delay(30);
+  delay(30*100/score);
 }
