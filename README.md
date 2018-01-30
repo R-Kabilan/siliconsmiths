@@ -1,2 +1,2 @@
 # siliconsmiths
-simple arduino based projects
+Microcontroller based projects
