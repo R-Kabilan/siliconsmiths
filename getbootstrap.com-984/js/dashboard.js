@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    generateTable("https://x7qb7jzwqj.execute-api.ap-south-1.amazonaws.com/Prod/tables", "div1", "name")
+    generateTablesTable("https://x7qb7jzwqj.execute-api.ap-south-1.amazonaws.com/Prod/tables", "div1", "name")
 });
 
-function generateTable(url, divid, primarykey) {
+function generateTablesTable(url, divid, primarykey) {
     $('#'+divid).empty();
-    var fulltable = '<table class="table table-bordered table-hover" style="width:100%" id="'+divid+'Table"><thead class="thead-dark" id="'+divid+'TableHeader"></thead><tbody id="'+divid+'TableBody"></tbody><tfoot id="'+divid+'TableFooter"></tfoot></table>'
+    var fulltable = '<table class="table table-striped table-sm" style="width:100%" id="'+divid+'Table"><thead class="thead-dark" id="'+divid+'TableHeader"></thead><tbody id="'+divid+'TableBody"></tbody><tfoot id="'+divid+'TableFooter"></tfoot></table>'
     $('#'+divid).append(fulltable);
     $.ajax({
         url : url,
@@ -62,12 +62,12 @@ function generateTable(url, divid, primarykey) {
 function generateButtons(divid, primarykey) {
     var buttondiv = '';
     buttondiv += '<div id="action-buttons">'
-    buttondiv += '<button id="addcolumn" name="" type="button" onclick="addColumn()">Add Column</button>'
-    buttondiv += '<button id="addrow" name="" type="button" onclick="addRow()">Add Row</button>'
-    buttondiv += '<button id="deletecolumn" name="" type="button" onclick="deleteColumn()">Delete Column</button>'
-    buttondiv += '<button id="deleterow" name="" type="button" onclick="deleteRow()">Delete Row</button>'
-    buttondiv += '<button id="editdata" name="" type="button" onclick="editData()">Edit Data</button>'
-    buttondiv += '<button id="showdata" name="" type="button" onclick="showData()">Show Data</button>'
+    buttondiv += '<button id="addcolumn" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="addColumn()">Add Column</button> '
+    buttondiv += '<button id="addrow" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="addRow()">Add Row</button> '
+    buttondiv += '<button id="deletecolumn" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="deleteColumn()">Delete Column</button> '
+    buttondiv += '<button id="deleterow" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="deleteRow()">Delete Row</button> '
+    buttondiv += '<button id="editdata" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="editData()">Edit Data</button> '
+    buttondiv += '<button id="showdata" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="showData()">Show Data</button> '
     buttondiv += '</div></br>'
     $('#'+divid).append(buttondiv);
 }
