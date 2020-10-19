@@ -60,7 +60,7 @@ function generateTablesTable(url, divid, primarykey) {
 } 
 
 function generateButtons(divid, primarykey) {
-    var buttondiv = '';
+    var buttondiv = '<center>';
     buttondiv += '<div id="action-buttons">'
     buttondiv += '<button id="addcolumn" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="addColumn()">Add Column</button> '
     buttondiv += '<button id="addrow" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="addRow()">Add Row</button> '
@@ -68,12 +68,11 @@ function generateButtons(divid, primarykey) {
     buttondiv += '<button id="deleterow" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="deleteRow()">Delete Row</button> '
     buttondiv += '<button id="editdata" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="editData()">Edit Data</button> '
     buttondiv += '<button id="showdata" class="btn btn-sm btn-outline-secondary" name="" type="button" onclick="showData()">Show Data</button> '
-    buttondiv += '</div></br>'
+    buttondiv += '</div><center></br>'
     $('#'+divid).append(buttondiv);
 }
 
 function setButtonId(tablename) {
-    console.log(tablename)
     document.getElementById("showdata").name = tablename;
     document.getElementById("editdata").name = tablename;
     document.getElementById("deleterow").name = tablename;
