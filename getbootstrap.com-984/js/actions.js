@@ -57,6 +57,7 @@ function generateShowTable(tablename) {
         headers: { Authorization: 'Bearer bb' },
         contentType : 'application/json; charset=utf-8',
         success : function(msg) {
+        
         var tableheader='<tr>'
         var tablebody = ''
 
@@ -113,7 +114,7 @@ function generateEditTable(tablename) {
         async: false,
         headers: { Authorization: 'Bearer bb' },
         contentType : 'application/json; charset=utf-8',
-        success : function(msg) {
+        success : function(msg) {    
         var tableheader='<tr><th>'+"Select"+'</th>'
         var tablebody = ''
 
@@ -200,6 +201,7 @@ function generateDeleteTableData(url, value, tablename) {
         headers: { Authorization: 'Bearer bb' },
         contentType : 'application/json; charset=utf-8',
         success : function(msg) {
+            deletejsonobject= msg    
             generateTableFromJson(divid, msg, value, tablename);
         }
     });
@@ -247,30 +249,26 @@ function generateTableFromJson(divid, msg, value, tablename) {
     ],
     "order": [[0, "asc"]],
     });
-    var functionstring = 'deleteRowsOrColumns('+ value +','+ tablename +','+ JSON.stringify(msg) +','+ divid +')'
+    var functionstring = 'deleteRowsOrColumns(\''+ value +'\',\''+ tablename +'\',\''+ divid +'\')'
     var submitbutton ='<center><button class="btn btn-sm btn-outline-secondary" id="deleterowsorcolumnsbutton" onclick="'+functionstring+'">Delete</button></center></br>'
     $('#'+divid).append(submitbutton);
 }
 
-function deleteRowsOrColumns(value, tablename, msg, divid) {
-    console.log(value)
-    console.log(tablename)
-    console.log(msg)
-    console.log(divid)
-    // var url = 'https://x7qb7jzwqj.execute-api.ap-south-1.amazonaws.com/Prod/' + value + '/' + tablename
-    // $.ajax({
-    //     url : url,
-    //     type : 'DELETE',
-    //     async: false,
-    //     dataType: 'json',
-    //     data: msg,
-    //     headers: { Authorization: 'Bearer bb' },
-    //     contentType : 'application/json; charset=utf-8',
-    //     success : function(msg) {
-    //         // $('#'+divid).empty();
-    //         // generateDropdownForDelete(deletedropdownurl, value, tablename);
-    //     }
-    // });
+function deleteRowsOrColumns(value, tablename, divid) {
+    var url = 'https://x7qb7jzwqj.execute-api.ap-south-1.amazonaws.com/Prod/' + value + '/' + tablename
+    $.ajax({
+        url : url,
+        type : 'DELETE',
+        async: false,
+        dataType: 'json',
+        data: JSON.stringify(deletejsonobject),
+        headers: { Authorization: 'Bearer bb' },
+        contentType : 'application/json; charset=utf-8',
+        success : function(msg) {
+            $('#'+divid).empty();
+            generateDropdownForDelete(deletedropdownurl, value, tablename);
+        }
+    });
 }
 
 
