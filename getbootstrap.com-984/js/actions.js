@@ -312,4 +312,25 @@ $.fn.serializeObject = function () {
     return o;
 };
 
+function createNewTableInputs() {
+    var divid = "div1"
+    var metadetails = '<form id="metadetails">'
+    metadetails += '<div><label for="tablename" class="col-form-label">Table Name: </label><input type="text" name="tablename" id="tablename" value=""></input></div><br>'
+    metadetails += '<div><label for="tabletype" class="col-form-label">Table Type: </label><select class="multiselect-dropdown form-control" name="tabletype" id="tabletype"></select></div><br>'
+    metadetails += '<div style="display: none"><label for="coursename" class="col-form-label">Course Name: </label><select disabled=""true class="multiselect-dropdown form-control" name="coursename" id="coursename"></select></div><br>'
+    metadetails += '<div><label for="columns" class="col-form-label">Columns: </label><input type="text" id="columns"></input><div> '
+    metadetails += '<div><label for="rows" class="col-form-label">Rows: </label><input type="text" id="rows"></input></div></form><br><br>'
+    metadetails += '<button class="btn btn-sm btn-outline-secondary" onclick="createNewTable()" id="createbutton">Create table and enter data</button>'
+    $('#'+divid).append(metadetails)
+}
+
+function createNewTable() {
+    var table = '<tr>'
+    var metadetails = $('#'+metadetails).serializeObject()
+    for(var i=0; i < metadetails.columns; i++) {
+        table += ''
+    }
+}
+
+
 
