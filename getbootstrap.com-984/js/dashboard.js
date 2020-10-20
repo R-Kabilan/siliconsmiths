@@ -98,9 +98,13 @@ function deleteColumn() {
 }
 
 function addRow() {
-    
+    window.location.href = "/actions.html?type=addrow&tablename="+document.getElementById("deletecolumn").name
 }
 
 function addColumn() {
     
+}
+
+function createTable() {
+    window.location.href = "/actions.html?type=createtable"
 }
